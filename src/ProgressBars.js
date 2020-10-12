@@ -1,9 +1,38 @@
 import React from "react";
+import "./ProgressBars.css";
+import { SliderFilter } from "./SliderFIlter.js";
 
-export function ProgressBars() {
+export function ProgressBars({ min, max, handleChange, value }) {
   return (
-    <div style={{ flex: 1, border: "1px solid red" }}>
-      <p>Progress Bar</p>
+    <div className="ProgressBarsContainer">
+      <SliderFilter
+        min={min}
+        max={max}
+        value={value}
+        // handleChange={handleSliderChange}
+        titleFilter={"Brightness"}
+      />
+      <SliderFilter
+        min={min}
+        max={max}
+        value={value}
+        // handleChange={handleSliderChange}
+        titleFilter={"Contrast"}
+      />
+      <SliderFilter
+        min={min}
+        max={max}
+        value={value}
+        // handleChange={handleSliderChange}
+        titleFilter={"Saturation"}
+      />
+      <SliderFilter
+        min={min}
+        max={max}
+        value={value}
+        // handleChange={handleSliderChange}
+        titleFilter={"Invert Colors"}
+      />
     </div>
   );
 }

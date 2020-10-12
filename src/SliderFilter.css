@@ -1,0 +1,14 @@
+.slider-container {
+  grid-area: slider;
+  text-align: center;
+  margin-top: 1px;
+  padding: 1px;
+  font-size: 0.5em;
+}
+
+.slider {
+  width: 80%;
+  cursor: pointer;
+  height: 1px;
+  color: rgb(0, 0, 0, 1);
+}
