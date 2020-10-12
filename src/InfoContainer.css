@@ -1,0 +1,13 @@
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+
+.closeBtnContainer {
+  flex: 1;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+}
