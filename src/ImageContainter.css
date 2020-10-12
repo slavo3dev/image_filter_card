@@ -1,9 +1,13 @@
 .ImgContainter {
+  display: flex;
   width: 100%;
   height: 550px;
   background-color: rgb(233, 235, 235, 1);
   text-align: center;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+}
+
+.textImageContainer {
+  margin: auto;
 }
