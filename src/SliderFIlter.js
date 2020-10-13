@@ -24,11 +24,11 @@ export function SliderFilter({ min, max, value, handleChange, titleFilter }) {
   //   </div>
   // );
 
-  function handleChanger() {
-    var v = value;
+  // function handleChanger() {
+  //   var v = value;
 
-    return (value = v);
-  }
+  //   return (value = v);
+  // }
 
   return (
     <div className="slider-container">
@@ -36,10 +36,9 @@ export function SliderFilter({ min, max, value, handleChange, titleFilter }) {
       <input
         type="range"
         className="slider"
-        min={0}
-        max={100}
-        value={50}
-        step="1"
+        min={min}
+        max={max}
+        // value={value}
         //  onChange={handleChanger}
       />
       <p>{titleFilter}</p>
