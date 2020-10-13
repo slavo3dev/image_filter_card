@@ -2,36 +2,79 @@ import React from "react";
 import "./ProgressBars.css";
 import { SliderFilter } from "./SliderFIlter.js";
 
-export function ProgressBars({ min, max, handleChange, value }) {
+const filtersObject = {
+  Brightness: {
+    name: "Brightness",
+    property: "brightness",
+    value: 100,
+    range: {
+      min: 0,
+      max: 200
+    },
+    unit: "%"
+  },
+  Contrast: {
+    name: "Contrast",
+    property: "contrast",
+    value: 100,
+    range: {
+      min: 0,
+      max: 200
+    },
+    unit: "%"
+  },
+  Saturation: {
+    name: "Saturation",
+    property: "saturate",
+    value: 100,
+    range: {
+      min: 0,
+      max: 200
+    },
+    unit: "%"
+  },
+  Invert: {
+    name: "Invert",
+    property: "invert",
+    value: 0,
+    range: {
+      min: 0,
+      max: 100
+    },
+    unit: "%"
+  }
+};
+
+export function ProgressBars() {
   return (
     <div className="ProgressBarsContainer">
       <SliderFilter
-        min={min}
-        max={max}
-        value={value}
-        // handleChange={handleSliderChange}
+        min={filtersObject.Brightness.range.min}
+        max={filtersObject.Brightness.range.max}
+        value={filtersObject.Brightness.value}
+        // handleChange={handleChange}
         titleFilter={"Brightness"}
       />
       <SliderFilter
-        min={min}
-        max={max}
-        value={value}
-        // handleChange={handleSliderChange}
+        min={filtersObject.Contrast.range.min}
+        max={filtersObject.Contrast.range.max}
+        value={filtersObject.Contrast.value}
+        // handleChange={handleChange}
         titleFilter={"Contrast"}
       />
       <SliderFilter
-        min={min}
-        max={max}
-        value={value}
-        // handleChange={handleSliderChange}
+        min={filtersObject.Saturation.range.min}
+        max={filtersObject.Saturation.range.max}
+        value={filtersObject.Saturation.value}
+        // handleChange={handleChange}
         titleFilter={"Saturation"}
       />
       <SliderFilter
-        min={min}
-        max={max}
-        value={value}
-        // handleChange={handleSliderChange}
-        titleFilter={"Invert Colors"}
+        min={filtersObject.Invert.range.min}
+        max={filtersObject.Invert.range.max}
+        value={filtersObject.Invert.value}
+        // handleChange={handleChange}
+        titleFilter={"Invert"}
       />
     </div>
   );
