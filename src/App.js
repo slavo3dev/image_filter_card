@@ -51,7 +51,6 @@ const filtersObject = [
 
 export default function App() {
   const [valueFilter, updatedValueFilter] = useState(0);
-  const [options, setOptions] = useState(filtersObject);
 
   function handleChange({ target }) {
     filtersObject.map((filter, index) => {
@@ -65,7 +64,7 @@ export default function App() {
   }
 
   function getImageStyle() {
-    const filters = options.map((option) => {
+    const filters = filtersObject.map((option) => {
       return `${option.property}(${option.value}${option.unit})`;
     });
     return { filter: filters.join(" ") };
