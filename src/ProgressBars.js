@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProgressBars.css";
 import { SliderFilter } from "./SliderFIlter.js";
 
-const filtersObject = {
-  Brightness: {
+const filtersObject = [
+  {
     name: "Brightness",
     property: "brightness",
     value: 100,
@@ -13,7 +13,7 @@ const filtersObject = {
     },
     unit: "%"
   },
-  Contrast: {
+  {
     name: "Contrast",
     property: "contrast",
     value: 100,
@@ -23,7 +23,7 @@ const filtersObject = {
     },
     unit: "%"
   },
-  Saturation: {
+  {
     name: "Saturation",
     property: "saturate",
     value: 100,
@@ -33,7 +33,7 @@ const filtersObject = {
     },
     unit: "%"
   },
-  Invert: {
+  {
     name: "Invert",
     property: "invert",
     value: 0,
@@ -43,43 +43,52 @@ const filtersObject = {
     },
     unit: "%"
   }
-};
+];
 
 export function ProgressBars() {
-  function handleChange() {
-    return { value: filtersObject.Brightness.values };
+  // const [valueFilter, updatedValueFilter] = useState(0);
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
+  const [options, setOptions] = useState(filtersObject);
+  const selectedOption = options[selectedOptionIndex];
+
+  // function handleChange({ target }) {
+  //   //  console.log(("Target value", target.value));
+  //   const filters = filtersObject.
+  // }
+
+  // function handleChange({ target }) {
+  //   filtersObject.map((filterObj, index) => {
+  //     return { ...filterObj, value: target.value };
+  //   });
+  // }
+
+  function handleSliderChange({ target }) {
+    setOptions((prevOptions) => {
+      return prevOptions.map((option, index) => {
+        if (index !== selectedOptionIndex) return option;
+        return { ...option, value: target.value };
+      });
+    });
   }
+
+  // function handleChange({ target }) {
+  //   updatedValueFilter(target.value);
+  // }
 
   return (
     <div className="ProgressBarsContainer">
-      <SliderFilter
-        min={filtersObject.Brightness.range.min}
-        max={filtersObject.Brightness.range.max}
-        value={filtersObject.Brightness.value}
-        handleChange={handleChange}
-        titleFilter={"Brightness"}
-      />
-      <SliderFilter
-        min={filtersObject.Contrast.range.min}
-        max={filtersObject.Contrast.range.max}
-        value={filtersObject.Contrast.value}
-        handleChange={handleChange}
-        titleFilter={"Contrast"}
-      />
-      <SliderFilter
-        min={filtersObject.Saturation.range.min}
-        max={filtersObject.Saturation.range.max}
-        value={filtersObject.Saturation.value}
-        handleChange={handleChange}
-        titleFilter={"Saturation"}
-      />
-      <SliderFilter
-        min={filtersObject.Invert.range.min}
-        max={filtersObject.Invert.range.max}
-        value={filtersObject.Invert.value}
-        handleChange={handleChange}
-        titleFilter={"Invert"}
-      />
+      {filtersObject.map((filterObj, index) => {
+        return (
+          <SliderFilter
+            key={index}
+            min={filterObj.range.min}
+            max={filterObj.range.max}
+            value={filterObj.value}
+            handleChange={handleSliderChange}
+            titleFilter={filterObj.name}
+          />
+        );
+      })}
     </div>
   );
 }
