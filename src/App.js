@@ -58,11 +58,12 @@ export default function App() {
       <ImageContainter />
       <RowContainer>
         <ProgressBars
-        // min={selectedOption.range.min}
-        // max={selectedOption.range.max}
-        // value={selectedOption.value}
-        // handleChange={handleSliderChange}
-        // titleFilert={titleFilert}
+          filtersObject={filtersObject}
+          // min={selectedOption.range.min}
+          // max={selectedOption.range.max}
+          // value={selectedOption.value}
+          // handleChange={handleSliderChange}
+          // titleFilert={titleFilert}
         />
         <div style={{ flex: 1 }}>
           <p>Progress Bar</p>
