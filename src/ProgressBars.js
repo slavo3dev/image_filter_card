@@ -46,34 +46,38 @@ const filtersObject = {
 };
 
 export function ProgressBars() {
+  function handleChange() {
+    return { value: filtersObject.Brightness.values };
+  }
+
   return (
     <div className="ProgressBarsContainer">
       <SliderFilter
         min={filtersObject.Brightness.range.min}
         max={filtersObject.Brightness.range.max}
         value={filtersObject.Brightness.value}
-        // handleChange={handleChange}
+        handleChange={handleChange}
         titleFilter={"Brightness"}
       />
       <SliderFilter
         min={filtersObject.Contrast.range.min}
         max={filtersObject.Contrast.range.max}
         value={filtersObject.Contrast.value}
-        // handleChange={handleChange}
+        handleChange={handleChange}
         titleFilter={"Contrast"}
       />
       <SliderFilter
         min={filtersObject.Saturation.range.min}
         max={filtersObject.Saturation.range.max}
         value={filtersObject.Saturation.value}
-        // handleChange={handleChange}
+        handleChange={handleChange}
         titleFilter={"Saturation"}
       />
       <SliderFilter
         min={filtersObject.Invert.range.min}
         max={filtersObject.Invert.range.max}
         value={filtersObject.Invert.value}
-        // handleChange={handleChange}
+        handleChange={handleChange}
         titleFilter={"Invert"}
       />
     </div>

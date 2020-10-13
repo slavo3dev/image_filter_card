@@ -38,8 +38,8 @@ export function SliderFilter({ min, max, value, handleChange, titleFilter }) {
         className="slider"
         min={min}
         max={max}
-        // value={value}
-        //  onChange={handleChanger}
+        value={value}
+        onChange={handleChange}
       />
       <p>{titleFilter}</p>
     </div>
