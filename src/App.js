@@ -50,35 +50,6 @@ const filtersObject = {
 };
 
 export default function App() {
-  // const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
-  // const [options, setOptions] = useState(DEFAULT_OPTIONS);
-  // const selectedOption = options[selectedOptionIndex];
-
-  // function handleSliderChange({ target }) {
-  //   setOptions((prevOptions) => {
-  //     return prevOptions.map((option, index) => {
-  //       if (index !== selectedOptionIndex) return option;
-  //       return { ...option, value: target.value };
-  //     });
-  //   });
-  // }
-
-  // function handleSliderChange({ target }) {
-  //   setOptions((prevOptions) => {
-  //     return prevOptions.map((option, index) => {
-  //       if (index !== selectedOptionIndex) return option;
-  //       return { ...option, value: target.value };
-  //     });
-  //   });
-  // }
-
-  // function getImageStyle() {
-  //   const filters = options.map((option) => {
-  //     return `${option.property}(${option.value}${option.unit})`;
-  //   });
-  //   return { filter: filters.join(" ") };
-  // }
-
   return (
     <div className="imageContainer">
       <CloseTopContainer />

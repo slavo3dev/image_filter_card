@@ -11,3 +11,14 @@
 .textImageContainer {
   margin: auto;
 }
+
+.main-image {
+  grid-area: image;
+  background-image: url("https://previews.dropbox.com/p/thumb/AA8acQ-4rqC89p4XRTdLUYZWtyz4AdHKnYATkbYu-7RDHrVkXnlrVDMXN-kc0uud6tByc5dGNgHebYJDwzH2Yx0-p3P9eolbuGS27RfsS90XDtefSkQYdcb1TGMjsDYCHLbVF3ZN_fwyWM5KEEYks8T5XJ1kq0Lruub3lxxisvzt48gcAP-9BWtXBX7U3b-TjbySL0K4Z9s00RkY0TXpxyEBBW19UmCBWpYz-9Hx9ylHFY40nQqAjN0AnEmyZ2rsTIk0kLqdn_JBY8A7nnc1dUbCtkDdUcNVza5EqbgfuA-J3Rc45YKzV-jUbpkyKoVClWeTotqT-hKRG_2TdRzjoeIELJLL2Dvj96diCAT2UMwXLQ/p.jpeg?fv_content=true&size_mode=5");
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 300;
+}

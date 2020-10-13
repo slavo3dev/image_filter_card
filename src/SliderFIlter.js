@@ -1,14 +1,7 @@
 import React from "react";
 import "./SliderFilter.css";
 
-export function SliderFilter({
-  min,
-  max,
-  handleChange,
-  value,
-  titleFilter,
-  handleClick
-}) {
+export function SliderFilter({ min, max, handleChange, value, titleFilter }) {
   // function handleChange({ target }) {
   //   console.log(target.value);
   //   return (value = target.value);
@@ -20,13 +13,13 @@ export function SliderFilter({
     <div className="slider-container">
       <p>{value}</p>
       <input
-        type="range"
         className="slider"
+        type="range"
+        name={titleFilter}
         min={min}
         max={max}
         value={value}
         onChange={handleChange}
-        onClick={handleClick}
       />
       <p>{titleFilter}</p>
     </div>

@@ -46,34 +46,18 @@ const filtersObject = [
 ];
 
 export function ProgressBars() {
-  // const [valueFilter, updatedValueFilter] = useState(0);
-  const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
-  const [options, setOptions] = useState(filtersObject);
-  const selectedOption = options[selectedOptionIndex];
+  const [valueFilter, updatedValueFilter] = useState(0);
 
-  // function handleChange({ target }) {
-  //   //  console.log(("Target value", target.value));
-  //   const filters = filtersObject.
-  // }
+  function handleChange({ target }) {
+    filtersObject.map((filter, index) => {
+      if (target.name === filter.name) {
+        updatedValueFilter(target.value);
+        filtersObject[index].value = valueFilter;
+      }
 
-  // function handleChange({ target }) {
-  //   filtersObject.map((filterObj, index) => {
-  //     return { ...filterObj, value: target.value };
-  //   });
-  // }
-
-  function handleSliderChange({ target }) {
-    setOptions((prevOptions) => {
-      return prevOptions.map((option, index) => {
-        if (index !== selectedOptionIndex) return option;
-        return { ...option, value: target.value };
-      });
+      return null;
     });
   }
-
-  // function handleChange({ target }) {
-  //   updatedValueFilter(target.value);
-  // }
 
   return (
     <div className="ProgressBarsContainer">
@@ -84,7 +68,7 @@ export function ProgressBars() {
             min={filterObj.range.min}
             max={filterObj.range.max}
             value={filterObj.value}
-            handleChange={handleSliderChange}
+            handleChange={handleChange}
             titleFilter={filterObj.name}
           />
         );
