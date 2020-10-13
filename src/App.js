@@ -6,8 +6,8 @@ import { ImageContainter } from "./ImageContainer";
 import { RowContainer } from "./RowContainer";
 import { ProgressBars } from "./ProgressBars";
 
-const filtersObject = {
-  Brightness: {
+const filtersObject = [
+  {
     name: "Brightness",
     property: "brightness",
     value: 100,
@@ -17,7 +17,7 @@ const filtersObject = {
     },
     unit: "%"
   },
-  Contrast: {
+  {
     name: "Contrast",
     property: "contrast",
     value: 100,
@@ -27,7 +27,7 @@ const filtersObject = {
     },
     unit: "%"
   },
-  Saturation: {
+  {
     name: "Saturation",
     property: "saturate",
     value: 100,
@@ -37,7 +37,7 @@ const filtersObject = {
     },
     unit: "%"
   },
-  Invert: {
+  {
     name: "Invert",
     property: "invert",
     value: 0,
@@ -47,18 +47,42 @@ const filtersObject = {
     },
     unit: "%"
   }
-};
+];
 
 export default function App() {
+  const [valueFilter, updatedValueFilter] = useState(0);
+  const [options, setOptions] = useState(filtersObject);
+
+  function handleChange({ target }) {
+    filtersObject.map((filter, index) => {
+      if (target.name === filter.name) {
+        updatedValueFilter(target.value);
+        filtersObject[index].value = valueFilter;
+      }
+
+      return null;
+    });
+  }
+
+  function getImageStyle() {
+    const filters = options.map((option) => {
+      return `${option.property}(${option.value}${option.unit})`;
+    });
+    return { filter: filters.join(" ") };
+  }
+
+  console.log("Get Image Style: ", getImageStyle());
+
   return (
     <div className="imageContainer">
       <CloseTopContainer />
       <InfoContainer />
       {/* <ImageContainter styles={getImageStyle()} /> */}
-      <ImageContainter />
+      <ImageContainter styles={getImageStyle()} />
       <RowContainer>
         <ProgressBars
           filtersObject={filtersObject}
+          handleChange={handleChange}
           // min={selectedOption.range.min}
           // max={selectedOption.range.max}
           // value={selectedOption.value}

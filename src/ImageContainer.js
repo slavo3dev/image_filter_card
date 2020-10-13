@@ -6,8 +6,10 @@ export function ImageContainter({ styles, img }) {
     return { backgroundColor: "red" };
   }
 
+  console.log("Styles: ", styles);
+
   const imageComponent = (
-    <div className="main-image ImgContainter" style={getImageStyle()} />
+    <div className="main-image ImgContainter" style={styles} />
   );
 
   // const placeHolder = (
