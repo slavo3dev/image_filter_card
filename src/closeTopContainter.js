@@ -1,5 +1,5 @@
 import React from "react";
-import "./CloseTopContainer.css";
+import "./closeTopContainer.css";
 
 export function CloseTopContainer() {
   return (
