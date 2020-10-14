@@ -5,49 +5,7 @@ import { InfoContainer } from "./InfoContainer";
 import { ImageContainter } from "./ImageContainer";
 import { RowContainer } from "./RowContainer";
 import { ProgressBars } from "./ProgressBars";
-
-const filtersObject = [
-  {
-    name: "Brightness",
-    property: "brightness",
-    value: 100,
-    range: {
-      min: 0,
-      max: 200
-    },
-    unit: "%"
-  },
-  {
-    name: "Contrast",
-    property: "contrast",
-    value: 100,
-    range: {
-      min: 0,
-      max: 200
-    },
-    unit: "%"
-  },
-  {
-    name: "Saturation",
-    property: "saturate",
-    value: 100,
-    range: {
-      min: 0,
-      max: 200
-    },
-    unit: "%"
-  },
-  {
-    name: "Invert",
-    property: "invert",
-    value: 0,
-    range: {
-      min: 0,
-      max: 100
-    },
-    unit: "%"
-  }
-];
+import { filtersObject } from "./filtersObject";
 
 export default function App() {
   const [valueFilter, updatedValueFilter] = useState(0);
@@ -76,17 +34,11 @@ export default function App() {
     <div className="imageContainer">
       <CloseTopContainer />
       <InfoContainer />
-      {/* <ImageContainter styles={getImageStyle()} /> */}
       <ImageContainter styles={getImageStyle()} />
       <RowContainer>
         <ProgressBars
           filtersObject={filtersObject}
           handleChange={handleChange}
-          // min={selectedOption.range.min}
-          // max={selectedOption.range.max}
-          // value={selectedOption.value}
-          // handleChange={handleSliderChange}
-          // titleFilert={titleFilert}
         />
         <div style={{ flex: 1 }}>
           <p>Progress Bar</p>
