@@ -41,7 +41,34 @@ export default function App() {
           handleChange={handleChange}
         />
         <div style={{ flex: 1 }}>
-          <p>Progress Bar</p>
+          <p>
+            Adjust the photo to improve visibility. Enter your interpretation
+            below
+          </p>
+
+          <input type="radio" id="negative" value="negative" />
+          <label for="negative">Negative</label>
+          <br />
+
+          <input type="radio" id="positive" value="positive" />
+          <label for="positive">Positive</label>
+          <br />
+
+          <input type="radio" id="invalid" value="invalid" />
+          <label for="invalid">Invalid</label>
+          <br />
+
+          <input
+            type="radio"
+            id="resultNotObtained"
+            name="resultNotObtained"
+            value="resultNotObtained"
+          />
+          <label for="other">Result not obtained</label>
+          <br />
+          <div style={{ margin: "20px" }}>
+            <button>Submit</button>
+          </div>
         </div>
       </RowContainer>
     </div>
